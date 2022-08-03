@@ -1,0 +1,678 @@
+<!doctype html>
+<html>
+<head>
+<!-- Basic Page Needs
+    ================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora  - Nutriclick</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+<!-- Slider
+    ================================================== -->
+<link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+<link href="css/owl.theme.css" rel="stylesheet" media="screen">
+<link href="css/animate.css" rel="stylesheet" media="screen">
+
+<!-- JavaScript
+    ================================================== -->
+    <script src="./js/index.js" type="text/javascript" defer></script>
+    <script src="./js/Calculadora.js" type="text/javascript" ></script>
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="style.css">
+<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700|Montserrat:100,200,300,300i,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+
+</head>
+<body class="page">
+
+<!-- Navegacion
+  ==========================================-->
+  <nav id="top-menu" class="navbar navbar-default navbar-fixed-top">
+    <div class="container"> 
+      <!-- Logo de Nutriclick -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+        <a class="navbar-brand" href="index.html"><img src="img/logo-top.png" class="img-responsive"><span>Nutriclick</span></a> </div>
+      
+      <!-- Menu -->
+      <ul class="nav nav-pills  navbar-right">
+        <li class="nav-item " >
+          <a class="nav-link active" aria-current="page" style="color:#ffff" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:#ffff" href="page.html">Guia nutricional</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:#ffff" href="blog.html">Acerca de nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:#ffff" href="contact.html">Calculadora de calorías</a>
+        </li>
+      </ul>
+      <!-- /.navbar-collapse --> 
+    </div>
+    <!-- /.container-fluid --> 
+</nav>
+
+<!-- Bienvenido / Calculadora
+    ==========================================-->
+<div id="page-banner" style="background-image: url(img/photo-typo.jpg);">
+  <div class="content  wow fdeInUp">
+    <div class="container ">
+      <h1>Calculadora de calorías</h1>
+    </div>
+  </div>
+</div>
+
+<!--Cuerpo de la pagina-->
+
+<div id="page-body">
+  <h1 class= "text-center">Calculadora de calorías</h1>
+  <div class="container">
+    <div class="row g-0"> 
+
+      <div class="col-sm-6 col-md-6">
+        <h4>Nivel de actividad</h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ejer0"  value="0" id="ejercicio0">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Poco o ningún ejercicio
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ejer0" value="1" id="ejercicio1" >
+            <label class="form-check-label" for="flexRadioDefault2">
+              Ejercicio ligero (1-3 días a la semana)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ejer0" value="2" id="ejercicio2" >
+            <label class="form-check-label" for="flexRadioDefault2">
+              Ejercicio moderado (3-5 días a la semana)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ejer0" value="3" id="ejercicio3" >
+            <label class="form-check-label" for="flexRadioDefault2">
+              Ejercicio fuerte (6-7 días a la semana)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ejer0" value="4" id="ejercicio4" >
+            <label class="form-check-label" for="flexRadioDefault2">
+              Ejercicio muy fuerte (dos veces al día, entrenamientos muy duros)
+            </label>
+          </div>
+      </div>
+      
+      <!--Contenido del Calculador de calorias-->
+      <div class="col-6 col-md-6">
+        
+        
+        <h3 class= "text-center">Ingresa tus datos</h3>
+        
+        <div class="container-md-offset-3 ">
+          <div class="row row-cols-auto">
+            <div class="col-md-4">
+              
+                <label for="edad" class="form-label">Edad (15-18 años)</label>
+                <input type="number" class="form-control is-valid" id="edad" placeholder="Edad en años" required>
+                <div class="valid-feedback">
+                  
+                </div>
+              
+            </div>
+            <div class="col-md-3">
+              
+                <label for="altura" class="form-label">Altura (Mtr)</label>
+                <input type="text" class="form-control is-valid" id="altura" placeholder="Altura en mtr" required>
+                <div class="valid-feedback">
+                  
+                </div>
+              
+            </div>
+            <div class="col-md-3">
+              
+                <label for="peso" class="form-label">Peso (Lb)</label>
+                <input type="text" class="form-control is-invalid" id="peso" placeholder="Peso en lb" required>
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                  
+                </div>
+              
+            </div>
+            <div class="col-md-4">
+              
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-select form-select-lg mb-5" aria-label="Default select example" placeholder="Genero" id="sexo">
+                  <option selected></option> 
+                  <option value="1">Masculino</option>
+                  <option value="2">Femenino</option>
+                </select>
+              
+            </div>
+
+            <div class="col-md-5">
+              <div class="display">
+                <label for="resultado2" class="form-label">Calorías por dia</label>
+
+                <div id="resultado">
+                  
+                </div>
+              </div>
+            </div>
+            
+          </div>
+            
+          
+        </div>
+        <div class="col-md-5 ">
+          <button class="btn btn-primary" type="submit" onclick="calcular()">Calcular</button>
+        </div>
+
+      <!--Contenido del Calculador de calorias-->
+    </div>
+  </div>
+ </div>
+</div>
+   <div class="clearfix"></div>
+
+   
+</div>
+
+
+
+
+
+<script>
+  function calcular(){
+    const edad = document.getElementById("edad");
+    const altura = document.getElementById("altura");
+    const peso = document.getElementById("peso");
+    const sexo = document.getElementById("sexo")
+    const result = document.getElementById('resultado');
+    const ejercicio0 = document.getElementById("ejercicio0")
+    const ejercicio1 = document.getElementById("ejercicio1")
+    const ejercicio2 = document.getElementById("ejercicio2")
+    const ejercicio3 = document.getElementById("ejercicio3")
+    const ejercicio4 = document.getElementById("ejercicio4")
+
+     peso.style.border   = 'none';
+    altura.style.border = 'none';
+    edad.style.border = 'none';
+    sexo.style.border = 'none';
+    ejercicio0.style.border = 'none';
+    ejercicio1.style.border = 'none';
+    ejercicio2.style.border = 'none';
+    ejercicio3.style.border = 'none';
+    ejercicio4.style.border = 'none';
+
+    if(!edad.value && !altura.value && !peso.value && !sexo.value && !document.getElementById('ejercicio0').checked && !document.getElementById('ejercicio1').checked && !document.getElementById('ejercicio2').checked && 
+      !document.getElementById('ejercicio3').checked && !document.getElementById('ejercicio4').checked){
+      edad.style.border = '1px solid red';
+      altura.style.border = "1px solid red";
+      peso.style.border = '1px solid red';
+      sexo.style.border = '1px solid red';
+      ejercicio0.style.border = '1px solid red';
+        ejercicio1.style.border = '1px solid red';
+        ejercicio2.style.border = '1px solid red';
+        ejercicio3.style.border = '1px solid red';
+        ejercicio4.style.border = '1px solid red';  
+      return 0
+    
+    }
+    else if(!edad.value &&!peso.value && !sexo.value && !altura.value){
+        edad.style.border = "1px solid red";
+       peso.style.border = '1px solid red';
+       sexo.style.border = '1px solid red';
+       altura.style.border = "1px solid red";
+       return 0
+     }
+     else if(!edad.value && !document.getElementById('ejercicio0').checked && !document.getElementById('ejercicio1').checked && !document.getElementById('ejercicio2').checked && 
+        !document.getElementById('ejercicio3').checked && !document.getElementById('ejercicio4').checked){
+
+        edad.style.border = '1px solid red';
+        ejercicio0.style.border = '1px solid red';
+        ejercicio1.style.border = '1px solid red';
+        ejercicio2.style.border = '1px solid red';
+        ejercicio3.style.border = '1px solid red';
+        ejercicio4.style.border = '1px solid red'; 
+        return 0        
+      }
+      else if(!peso.value && !document.getElementById('ejercicio0').checked && !document.getElementById('ejercicio1').checked && !document.getElementById('ejercicio2').checked && 
+        !document.getElementById('ejercicio3').checked && !document.getElementById('ejercicio4').checked){
+
+        peso.style.border = '1px solid red';
+        ejercicio0.style.border = '1px solid red';
+        ejercicio1.style.border = '1px solid red';
+        ejercicio2.style.border = '1px solid red';
+        ejercicio3.style.border = '1px solid red';
+        ejercicio4.style.border = '1px solid red'; 
+        return 0        
+      }
+      else if(!altura.value && !document.getElementById('ejercicio0').checked && !document.getElementById('ejercicio1').checked && !document.getElementById('ejercicio2').checked && 
+        !document.getElementById('ejercicio3').checked && !document.getElementById('ejercicio4').checked){
+
+        altura.style.border = '1px solid red';
+        ejercicio0.style.border = '1px solid red';
+        ejercicio1.style.border = '1px solid red';
+        ejercicio2.style.border = '1px solid red';
+        ejercicio3.style.border = '1px solid red';
+        ejercicio4.style.border = '1px solid red'; 
+        return 0        
+      }
+      else if(!sexo.value && !document.getElementById('ejercicio0').checked && !document.getElementById('ejercicio1').checked && !document.getElementById('ejercicio2').checked && 
+        !document.getElementById('ejercicio3').checked && !document.getElementById('ejercicio4').checked){
+
+        sexo.style.border = '1px solid red';
+        ejercicio0.style.border = '1px solid red';
+        ejercicio1.style.border = '1px solid red';
+        ejercicio2.style.border = '1px solid red';
+        ejercicio3.style.border = '1px solid red';
+        ejercicio4.style.border = '1px solid red'; 
+        return 0        
+      }
+      else if(!altura.value &&!peso.value && !sexo.value){
+       altura.style.border = "1px solid red";
+       peso.style.border = '1px solid red';
+       sexo.style.border = '1px solid red';   
+       return 0  
+     }
+     else if(!edad.value &&!peso.value && !sexo.value){
+       edad.style.border = "1px solid red";
+       peso.style.border = '1px solid red';
+       sexo.style.border = '1px solid red';
+       return 0     
+     }
+      else if(!edad.value && !altura.value){
+        edad.style.border = '1px solid red';
+        altura.style.border = '1px solid red';
+        return 0
+      }
+      else if(!peso.value && !sexo.value){
+        peso.style.border = '1px solid red';
+        sexo.style.border = '1px solid red';
+        return 0
+      }
+      else if(!peso.value && !edad.value){
+       peso.style.border = '1px solid red';
+       edad.style.border = '1px solid red';
+       return 0
+      }
+      else if(!altura.value && !sexo.value){
+       altura.style.border = '1px solid red';
+       sexo.style.border = '1px solid red';
+       return 0
+      }
+      else if(!edad.value && !sexo.value){
+       edad.style.border = '1px solid red';
+       sexo.style.border = '1px solid red';
+       return 0
+      }
+      else if(!altura.value && !peso.value){
+       altura.style.border = '1px solid red';
+       peso.style.border = '1px solid red';
+       return 0
+      }
+      else if(!edad.value){
+        edad.style.border = '1px solid red';
+        return 0
+      }
+      else if (!altura.value){
+        altura.style.border = '1px solid red';
+        return 0
+      }
+      else if (!peso.value){
+        peso.style.border = '1px solid red';
+        return 0
+      }
+      else if (!sexo.value){
+        sexo.style.border = '1px solid red'; 
+        return 0
+      }
+    if (!document.getElementById('ejercicio0').checked && !document.getElementById('ejercicio1').checked && !document.getElementById('ejercicio2').checked && 
+                !document.getElementById('ejercicio3').checked && !document.getElementById('ejercicio4').checked){
+        alert("Seleccione una Actividad")
+        ejercicio0.style.border = '1px solid red';
+        ejercicio1.style.border = '1px solid red';
+        ejercicio2.style.border = '1px solid red';
+        ejercicio3.style.border = '1px solid red';
+        ejercicio4.style.border = '1px solid red';  
+      }
+
+
+    //Opcion 0 *1.2
+    if(document.getElementById('ejercicio0').checked){
+      if (edad.value < 15 || edad.value > 18) {
+        console.log("edad mala")
+      edad.style.border = "1px solid red";
+      alert("Ingresa una edad entre los 15 y 18 años")
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      return edad.value = null
+        
+      } 
+      if(sexo.value== "1"){
+         if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+          return sexo.value = "0"
+        }
+
+
+        console.log("Hola es hombre calorias")
+        let calc = (66+(13.7 * (peso.value/2.205))+(5*(altura.value*100))-(6.5*edad.value))
+        let calcEje = (calc * 1.2).toFixed(2)     
+        console.log(calcEje)
+         
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+
+      }
+      if(sexo.value== "2"){
+        if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+          return sexo.value = "0"
+        }  
+        console.log("Hola es calorias mujer")
+        let calc = (655+(9.6 * (peso.value /2.205))+(1.8*(altura.value*100))-(4.7*edad.value))
+        let calcEje = (calc * 1.2).toFixed(2);
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+
+      }
+        
+    }
+
+    //Opcion 1 *1.375
+    if(document.getElementById('ejercicio1').checked){
+      if (edad.value < 15 || edad.value > 18) {
+        console.log("edad mala")
+      edad.style.border = "1px solid red";
+      alert("Ingresa una edad entre los 15 y 18 años")
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      return edad.value = null
+        
+      }
+      if(sexo.value== "1"){
+         if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+          return sexo.value = "0"
+        }
+        console.log("Hola es hombre calorias")
+        let calc = (66+(13.7 * (peso.value/2.205))+(5*(altura.value*100))-(6.5*edad.value))
+        let calcEje = (calc * 1.375).toFixed(2);
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      }
+      if(sexo.value== "2"){
+        if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+            return sexo.value = "0"
+        }  
+        console.log("Hola es calorias mujer")
+        let calc = (655+(9.6 * (peso.value /2.205))+(1.8*(altura.value*100))-(4.7*edad.value))
+        let calcEje = (calc * 1.375).toFixed(2)
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+
+      }
+    }
+
+    //Opcion 2 *1.55
+    if(document.getElementById('ejercicio2').checked){
+      if (edad.value < 15 || edad.value > 18) {
+        console.log("edad mala")
+      edad.style.border = "1px solid red";
+      alert("Ingresa una edad entre los 15 y 18 años")
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      return edad.value = null
+        
+      
+      }
+      if(sexo.value== "1"){
+         if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+          return sexo.value = "0"
+        }
+        console.log("Hola es hombre calorias")
+        let calc = (66+(13.7 * (peso.value/2.205))+(5*(altura.value*100))-(6.5*edad.value))
+        let calcEje = (calc * 1.55).toFixed(2);
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      }
+      if(sexo.value== "2"){
+        if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+            return sexo.value = "0"
+        }  
+        console.log("Hola es calorias mujer")
+        let calc = (655+(9.6 * (peso.value /2.205))+(1.8*(altura.value*100))-(4.7*edad.value))
+        let calcEje = (calc * 1.55).toFixed(2)
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      }
+    }
+
+    //Opcion 3 *1.725
+    if(document.getElementById('ejercicio3').checked){
+      if (edad.value < 15 || edad.value > 18) {
+        console.log("edad mala")
+      edad.style.border = "1px solid red";
+      alert("Ingresa una edad entre los 15 y 18 años")
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      return edad.value = null
+        
+      }
+      if(sexo.value== "1"){
+         if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+          return sexo.value = "0"
+        }
+        console.log("Hola es hombre calorias")
+        let calc = (66+(13.7 * (peso.value/2.205))+(5*(altura.value*100))-(6.5*edad.value))
+        let calcEje = (calc * 1.725).toFixed(2);
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      }
+      if(sexo.value== "2"){
+        if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+            return sexo.value = "0"
+        }  
+        console.log("Hola es calorias mujer")
+        let calc = (655+(9.6 * (peso.value /2.205))+(1.8*(altura.value*100))-(4.7*edad.value))
+        let calcEje = (calc * 1.725).toFixed(2)
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      }
+    }
+
+    //Opcion 4 *1.9
+    if(document.getElementById('ejercicio4').checked){
+      if (edad.value < 15 || edad.value > 18) {
+        console.log("edad mala")
+      edad.style.border = "1px solid red";
+      alert("Ingresa una edad entre los 15 y 18 años")
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      return edad.value = null
+        
+      }
+      if(sexo.value== "1"){
+         if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+          return sexo.value = "0"
+        }
+        console.log("Hola es hombre calorias")
+        let calc = (66+(13.7 * (peso.value/2.205))+(5*(altura.value*100))-(6.5*edad.value))
+        let calcEje = (calc * 1.9).toFixed(2);
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      }
+      if(sexo.value== "2"){
+        if(!altura.value &&!peso.value && !edad.value){
+          alert("Ingrese los datos que se le piden")
+            return sexo.value = "0"
+        }  
+        console.log("Hola es calorias mujer")
+        let calc = (655+(9.6 * (peso.value /2.205))+(1.8*(altura.value*100))-(4.7*edad.value))
+        let calcEje = (calc * 1.9).toFixed(2)
+        console.log(calcEje) 
+        result.style.color = 'Blue';
+        result.innerHTML = calcEje;
+        ejercicio0.style.border = '1px solid black';
+        ejercicio1.style.border = '1px solid black';
+        ejercicio2.style.border = '1px solid black';
+        ejercicio3.style.border = '1px solid black';
+        ejercicio4.style.border = '1px solid black';
+      }
+    }
+
+    
+
+  }
+</script>
+<!-- Pie de Página
+    ==========================================-->
+    <footer id="bottom-footer">
+      <div class="container">
+        <div class="row wow fadeInUp">
+          <!-- <Links demas pestañas -->
+          <div class="col-md-6 col-sm-4 col-xs-12">
+            <nav class="bottom-nav">
+              <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="page.html">Guia nutricional</a></li>
+                <li><a href="blog.html">Acerca de nosotros</a></li>
+                <li><a href="contact.html">Calculadora</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- <!/Links demas pestañas -->
+          
+          <!-- Redes Sociales -->
+          <div class="col-md-6 col-sm-4 col-xs-12">
+                
+            <!-- Contador de visitas -->
+            <!-- <center><a  title="Contador De Visitas Gratis">
+            <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://websmultimedia.com/contador-de-visitas.php?id=2827"></a><br><br><a>Contador de visitas</a></center> -->
+            <!-- Fin Contador de visitas -->
+    
+          </div> 
+          <!-- <!/Redes Sociales -->
+        </div>
+      </div>
+      <br>
+      <div class="text-center"> 
+        <!--copyright-->
+        <a class="copyright"> Copyright © 2022 Nutriclick Todos los derechos reservados</a>
+        <!--/copyright--> 
+      </div>
+    </footer> 
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.js"></script> 
+<script src="js/owl.carousel.js"></script> 
+<script src="js/jquery.waypoints.min.js"></script> 
+<!-- Javascripts
+    ================================================== --> 
+<script type="text/javascript" src="js/main.js"></script> 
+<script src="js/wow.min.js"></script> 
+<script>
+    jQuery(document).ready(function( $ ) {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+    });
+</script> 
+<script>
+new WOW().init();
+</script>
+</body>
+</html>
