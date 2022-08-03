@@ -1,0 +1,121 @@
+<div class="row 2">
+
+  <figure class="text-center ">
+    <blockquote class="blockquote text-warning">
+      <h1 class="display-3 ">Bienvenido</h1>
+      <p></p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      A Reto Deportivo
+    </figcaption>
+  </figure>
+
+
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="assets/img/fondo.jpg" class="d-block w-100 " alt="...">
+        <div class="carousel-caption d-none d-md-block text-white">
+          <h1>Futbol</h1>
+          <p>Ven y juegan con tus amigos en un torneo de futbol</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="assets/img/basquet3.jpg" class="d-block w-100 " alt="...">
+        <div class="carousel-caption d-none d-md-block text-white ">
+          <h1>Baloncesto</h1>
+          <p>Crees que eres el mejor echando canastas? Prueba si eres el mejor.</p>
+        </div>
+      </div>
+      <div class="carousel-item ">
+        <img src="assets/img/voleybol1.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block text-white">
+          <h1>Voleibol</h1>
+          <p>Prueba tu agilidad al jugar con tus amigos</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <br> <br> <br>
+  <br> <br> <br>
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <h1 class="display-6">Escoge el deporte</h1>
+      <p></p>
+    </blockquote>
+
+  </figure>
+
+  <!--  -->
+  <div class="container">
+
+</div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4" *ngFor="let catego of categorias">
+      <div class="card mb-3">
+        <div class="card-header">
+          {{ catego.nombre }}
+        </div>
+        <img src="assets/img/pelotas.jpg" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <a class="btn btn-primary" [routerLink]="['/Categorias',catego._id]">Ir</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-xs-12 col-sm-4" *ngIf="(_usuarioService.obtenerIdentidad().rol === 'ROL_ADMINAPP' )">
+      
+      <br> <br> <br>
+      <figure class="text-center">
+        <blockquote class="blockquote">
+          <h1 class="display-6">Administrador</h1>
+          <p></p>
+        </blockquote>
+      </figure>
+
+
+      <div class="card mb-3 ">
+        <div class="card-body">
+          <h5 class="card-title">Usuarios</h5>
+          <p class="card-text">Como usuario admin, podra administrar los usuarios.</p>
+          <img src="assets/img/usuario2.jpg" class="card-img-bottom  " alt="...">
+          <a class="btn btn-primary" href="/Usuarios">Ir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="banner-wrapper">
+    <div class="icon-text">
+      <div class="icon-text-icon">
+        <figure class="text-center">
+          <blockquote class="blockquote">
+            <p class="fst-italic text-white">Reto Deportivo</p>
+            <p class="fst-italic text-white">Derechos reservados © 2021</p>
+            <p></p>
+          </blockquote>
+        </figure>
+      </div>
+    </div>
+  </div>
+</footer>

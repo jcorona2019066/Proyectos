@@ -1,0 +1,219 @@
+<div class="estadisticas" *ngIf="equipoList.torneo != null">
+
+  <h1>ESTADISTICAS</h1>
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <br><br><br>
+        <a class="logo">
+          <div class="circulo center"></div>
+          <div class="logo-cristalab-core">
+            <span class="partidos">Partidos Jugados</span>
+            <span class="name-resumen-cl">{{equipoList.pj}}</span>
+          </div>
+        </a>
+
+      </div>
+      <div class="col">
+
+        <br><br><br>
+        <a class="logo">
+          <div class="circulo center"></div>
+          <div class="logo-cristalab-core">
+            <span class="puntos">Puntos</span>
+            <span class="name-resumen-cl">{{equipoList.puntos}}</span>
+          </div>
+        </a>
+
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <h6 style="text-align: center" class="card-text">Torneo</h6>
+          <img src="assets/img/equipos/sin_logo.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 style="text-align: center" class="card-text">{{equipoList.torneo.nombre}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<section id="team" class="team team-bg py-5">
+
+  <div class="container">
+
+    <div class="section-title">
+      <a class="back btn-primary" href="javascript:window.history.go(-1);"><i class="bi bi-arrow-left"></i></a>
+
+      <p class="main-team-subheading">{{equipoList.nombre}}</p>
+      <p class="main-team-heading">Team</p>
+
+
+      <div class="container"
+        *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_COACH' && _usuarioService.obtenerIdentidad().equipos === equipoList._id">
+        <div class="row row-cols-auto">
+          <div class="col">
+            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Editar"
+              (click)="mostarEquipoID(equipoList._id)">
+              <span class="bi bi-pencil-square"></span> Editar Equipo
+            </button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#AgregarMiembro">
+              <span class="bi bi-pencil-square"></span> Agregar Miembro
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container"
+        *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_USER' && _usuarioService.obtenerIdentidad().equipos === null">
+        <div class="row row-cols-auto">
+          <div class="col">
+            <button type="button" class="btn btn-outline-dark" (click)="unirmeAEquipo()">Unirme</button>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-6" *ngFor="let tm of team">
+        <div class="member d-flex align-items-start">
+          <div class="pic"><img src="https://image.flaticon.com/icons/png/512/56/56745.png" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <p class="member-heading">{{tm.nombres}}</p>
+            <span>{{equipoList.nombre}}</span>
+            <p class="member-para">{{equipoList.categoria.nombre}}</p>
+            <p class="member-para" *ngIf="tm.rol === 'ROL_COACH'" >COACH</p>
+            <div class="social">
+              <a data-bs-toggle="modal" data-bs-target="#Eliminar" (click)="obtenerUsuarioID(tm._id)"
+                *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_COACH' && _usuarioService.obtenerIdentidad().equipos === equipoList._id && tm.rol != 'ROL_COACH'"><i
+                  class="bi bi-trash"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</section>
+
+<div>
+  <h3 style="text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"
+    class="card-text"> Torneos Ganados</h3>
+
+  <div class="Win">
+
+
+
+    <div class="containerWIN" *ngFor="let t of wins" >
+
+
+      <div class="card-profile"  >
+        <div class="card-profile_visual"></div>
+
+        <div class="card-profile_user-infos">
+          <span class="infos_name">Torneo</span>
+          <span class="infos_nick">{{t.nombreTorneo}}</span>
+
+          <a href="#"></a>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Editar Equipo -->
+<div class="modal fade" id="Editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Equipo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="ModelEquipoID.nombre">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal"
+          (click)="EditarEquipo()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Eliminar miembro -->
+<div class="modal fade" id="Eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Equipo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Esta seguro de eliminarlo del equipo?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal"
+          (click)="EliminarMiembro(equipoList._id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Agregar miembro -->
+<div class="modal fade " id="AgregarMiembro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">INGRESAR Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <div class="mb-3">
+            <label for="text" class="form-label">Usuario</label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="usuario"
+              #usuario="ngModel" [(ngModel)]="ModelEquipoID.usuario">
+              <option placeholder="usuario" *ngFor="let user of usuariosST " value={{user._id}}> {{ user.usuario}}
+              </option>
+            </select>
+            <div id="emailHelp" class="form-text">Ingrese el nombre del equipo</div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+          (click)="agregarMiembro()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

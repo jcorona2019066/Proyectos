@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 d-none d-md-block infinity-image-container">
+        <div class="contenedor">
+          <div class="caja1"></div>
+          <div class="caja2"></div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 infinity-form-container">
+        <div class="col-lg-9 col-md-12 col-sm-8 col-xs-12 infinity-form">
+          <div class="text-center mb-3 mt-5">
+            <figure id="imagen">
+              <img src="/assets/img/1.png" width="300px">
+              </figure>
+          </div>
+          <div class="text-center mb-4">
+            <h4>Registro</h4>
+          </div>
+          <form class="px-3">
+            <div class="form-input">
+              <span><i class="bi bi-person-fill"></i></span>
+              <input type="text" name="" placeholder="Nombres" tabindex="10" name="nombres" #nombres="ngModel"
+              [(ngModel)]="usuarioModel.nombres" required>
+            </div>
+            <div class="form-input">
+              <span><i class="bi bi-person-fill"></i></span>
+              <input type="text" name="" placeholder="Apellidos" tabindex="10" name="apellidos" #apellidos="ngModel"
+              [(ngModel)]="usuarioModel.apellidos" required>
+            </div>
+            <div class="form-input">
+              <span><i class="bi bi-person-fill"></i></span>
+              <input type="text" name="" placeholder="Usuario" tabindex="10" name="usuario" #usuario="ngModel"
+              [(ngModel)]="usuarioModel.usuario" required>
+            </div>
+            <div class="form-input">
+                <span><i class="bi bi-person-fill"></i></span>
+                <input type="number" name="" placeholder="Edad" tabindex="10" name="edad" #edad="ngModel"
+                [(ngModel)]="usuarioModel.edad" required>
+              </div>
+            <div class="form-input">
+              <span><i class="bi bi-envelope-fill"></i></span>
+              <input type="email" name="" placeholder="Correo" tabindex="10" name="email" #email="ngModel"
+              [(ngModel)]="usuarioModel.email" required>
+            </div>
+            <div class="form-input">
+              <span><i class="bi bi-lock-fill"></i></span>
+              <input type="password" name="" placeholder="Contraseña" name="password" #password="ngModel"
+              [(ngModel)]="usuarioModel.password" required>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-block" (click)="registrar()">Registrar</button>
+            </div>
+            <br>
+            <div class="text-center mb-5" style="color: #777;">Ya tienes una cuenta?
+              <a class="register-link " style="text-decoration:none;" href="/login">Inicia sesion</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

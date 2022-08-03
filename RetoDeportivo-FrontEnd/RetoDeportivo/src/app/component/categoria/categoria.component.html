@@ -1,0 +1,134 @@
+<div class="container"  *ngIf="categoriaList">
+
+  <img *ngIf="categoriaList.nombre === 'Baloncesto'" class="img" src="/assets/img/basket.jpg" alt="">
+  <img *ngIf="categoriaList.nombre === 'Voleibol'" class="img" src="/assets/img/Voley.png" alt="">
+  <img *ngIf="categoriaList.nombre === 'Futbol'" class="img" src="/assets/img/futbol.png" alt="">
+
+
+  <div class="row 2">
+
+  </div>
+  <br> <br>
+  <div class="row">
+
+    <a class="back btn-primary" href="javascript:window.history.go(-1);"><i class="bi bi-arrow-left"></i></a>
+
+    <h1 style="text-align: center;">Equipos de {{categoriaList.nombre}}</h1>
+    <hr>
+    <br>
+    <div class="container contenedorBotones">
+      <div class="row  row-cols-auto">
+        <div class="col">
+          <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+            data-bs-target="#AgregarEquipo" *ngIf=" _usuarioService.obtenerIdentidad().rol === 'ROL_USER' ">Crear Equipo</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="center" *ngFor="let equip of equipoList" >
+        <!-- Markup efecto -->
+        <figure class="cardd card-with-hover">
+          <!-- Photo by Iga Palacz on Unsplash -->
+          <img src="/assets/img/equipos/sin_logo.png" alt="">
+          <figcaption class="card-caption">
+            <div class="card-caption-content" >
+              <h6 class="h" *ngIf="equip._id === _usuarioService.obtenerIdentidad().equipos">Mi equipo</h6>
+              <h2>{{equip.nombre}}</h2>
+
+              <a >{{equip.integrantes.nombres}}</a>
+              <br><br>
+              <button type="button" class="btn btn-outline-info" [routerLink]="['/Equipos',equip._id]">Ver más</button>
+
+            </div>
+          </figcaption>
+        </figure>
+        <!-- Markup efecto -->
+      </div>
+    </div>
+    <!--Torneos-->
+    <!--Crear un torneo-->
+    <h1 style="text-align: center" class="tit" *ngIf="torneoList != null || _usuarioService.obtenerIdentidad().rol === 'ROL_ADMINAPP' ">Torneos de {{categoriaList.nombre}}</h1>
+    <hr>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="center" *ngFor="let torn of torneoList" >
+        <!-- Markup efecto -->
+        <figure class="cardd card-with-hover" (click)='navegarTorneos(torn._id)'>
+          <!-- Photo by Iga Palacz on Unsplash -->
+          <img *ngIf="categoriaList.nombre === 'Baloncesto'" src="/assets/img/torneos/baloncesto.png" alt="">
+          <img *ngIf="categoriaList.nombre === 'Futbol'" src="/assets/img/torneos/futbol.png" alt="">
+          <img *ngIf="categoriaList.nombre === 'Voleibol'" src="/assets/img/torneos/voley.png" alt="">
+          <figcaption class="card-caption">
+            <div class="card-caption-content" >
+              <h2>{{torn.nombre}}</h2>
+              <br><br>
+              <a class="btn btn-primary" *ngIf="(_usuarioService.obtenerIdentidad().rol === 'ROL_COACH' && torn.iniciado != true && tipo.equipos.torneo === null)" (click)='unirMiEquipo(torn._id)'>UNIRME</a>
+            </div>
+          </figcaption>
+        </figure>
+        <!-- Markup efecto -->
+      </div>
+    </div>
+
+    <div class="col-4" *ngIf=" _usuarioService.obtenerIdentidad().rol === 'ROL_ADMINAPP' " data-bs-toggle="modal"data-bs-target="#AgregarTorneo">
+      <div class="card">
+        <div class="card-body">
+          <img class="y" src="/assets/img/mas.png" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- Modal Agregar Equipo -->
+<div class="modal fade" id="AgregarEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Equipo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="ModelEquipoID.nombre" >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="CrearEquipo()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal agregar torneo-->
+<div class="modal fade" id="AgregarTorneo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Torneo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="modelTorneo.nombre" >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="crearTorneo()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<a class="back" href="javascript:window.history.go(-1);"><i class="bi bi-arrow-left"></i></a>
+<div class="container">
+  <div class="row ">
+    <div class="col-md-6 align-self-center ">
+      <div class="left box-primary "align="center" >
+        <img class="image"  *ngIf="_usuarioService.obtenerIdentidad().imagen" [src]="this.url + 'obtenerImagen/' + _usuarioService.obtenerIdentidad().imagen"/>
+        <img class="image"  *ngIf="_usuarioService.obtenerIdentidad().imagen === null" src="/assets/img/usuarios/User.png"/>
+        <h3 class="username text-center">{{_usuarioService.obtenerIdentidad().nombres}} {{_usuarioService.obtenerIdentidad().apellidos}}   </h3>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn btn-primary btn-block"  data-bs-toggle="modal" data-bs-target="#SubirImagen">Cambiar Foto</button>
+      </div>
+      </div>
+    </div>
+      <div class="col-lg-6 col-md-6 infinity-form-container">
+        <div class="col-lg-9 col-md-12 col-sm-8 col-xs-6 infinity-form">
+          <form class="px-3">
+            <div class="form-input">
+              
+              <label for="exampleInputPassword1" class="form-label">Usuario</label>
+              <span><i class="bi bi-person-fill"></i></span>
+              <input type="text" name="" placeholder="{{_usuarioService.obtenerIdentidad().usuario}}" tabindex="10" disabled>
+            </div>
+            <div class="form-input">
+              
+              <label for="exampleInputPassword1" class="form-label">Correo</label>
+              <span><i class="bi bi-envelope-fill"></i></span>
+              <input type="text" name="" placeholder="{{_usuarioService.obtenerIdentidad().email}}" disabled>
+            </div>
+            <div class="form-input">
+              
+              <label for="exampleInputPassword1" class="form-label">Edad</label>
+              <span><i class="bi bi-hourglass-split"></i></span>
+              <input type="text" name="" placeholder="{{_usuarioService.obtenerIdentidad().edad}}" disabled>
+            </div>
+            <div class="d-grid gap-2 d-md-block d-md-flex justify-content-md-end">
+              <button type="submit" class="btn btn-block" data-bs-toggle="modal"
+              data-bs-target="#EditarUser" (click)="obtenerUsuarioId(_usuarioService.obtenerIdentidad()._id)">Editar Perfil</button>
+              <button type="submit" class="btn btn-block" data-bs-toggle="modal"
+              data-bs-target="#EliminarUser" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_USER'">Eliminar Perfil</button>
+            </div>
+            <br>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!--MODAL EDITAR USUARIO-->
+<div class="modal fade" id="EditarUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar mi perfil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Nombres</label>
+            <input type="text" class="form-control"
+            name="nombres" #nombres="ngModel" [(ngModel)]="usuarioIDModel.nombres">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Apellidos</label>
+            <input type="text" class="form-control"
+            name="apellidos" #apellidos="ngModel" [(ngModel)]="usuarioIDModel.apellidos">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Usuario</label>
+            <input type="text" class="form-control"
+            name="usuario" #usuario="ngModel" [(ngModel)]="usuarioIDModel.usuario">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Edad</label>
+            <input type="number" class="form-control"
+            name="edad" #edad="ngModel" [(ngModel)]="usuarioIDModel.edad">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo</label>
+            <input type="email" class="form-control"
+            name="email" #email="ngModel" [(ngModel)]="usuarioIDModel.email">
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="editarUser(_usuarioService.obtenerIdentidad()._id)">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--MODAL ELIMINAR USUARIO-->
+<div class="modal fade" id="EliminarUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">ELIMINAR PERFIL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Esta seguro de eliminar su cuenta? al eliminar se perderan todos sus datos y no podrá recuperarlos
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+         (click)="eliminarUser(_usuarioService.obtenerIdentidad()._id)" (click)="cerrarSesion()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade " id="SubirImagen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cambiar imagen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Seleccione una imagen</label>
+          <input class="form-control" (change)="inputEvento($event)" type="file" id="formFile">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="(subirImagen())">Subir Imagen</button>
+      </div>
+    </div>
+  </div>
+</div>
