@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jairocorona.controller.TipoEmpleadoController">
+   <children>
+      <TableView fx:id="tblTipoEmpleado" layoutX="41.0" layoutY="249.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="194.0" prefWidth="694.0">
+        <columns>
+          <TableColumn fx:id="colCodigoTipoEmpleado" prefWidth="180.0" text="Codigo Tipo Empleado" />
+          <TableColumn fx:id="colDescripcionTipoEmpleado" minWidth="4.0" prefWidth="513.0" text="Descripcion" />
+        </columns>
+      </TableView>
+      <Label fx:id="lbTipoEmpleado" layoutX="320.0" layoutY="14.0" text="Tipo Empleado" textFill="#d05959">
+         <effect>
+            <Bloom threshold="0.61">
+               <input>
+                  <SepiaTone />
+               </input>
+            </Bloom>
+         </effect>
+         <font>
+            <Font name="Candara Italic" size="24.0" />
+         </font></Label>
+      <Label fx:id="lbCodigoTipoEmpleado" layoutX="44.0" layoutY="89.0" text="Codigo Tipo Empleado">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font></Label>
+      <Label fx:id="lbDescripcionTipoEmpleado" layoutX="78.0" layoutY="156.0" text="Descripción">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font></Label>
+      <TextField fx:id="txtCodigoTipoEmpleado" editable="false" layoutX="232.0" layoutY="82.0" prefHeight="31.0" prefWidth="256.0" />
+      <TextField fx:id="txtDescripcionTipoEmpleado" editable="false" layoutX="232.0" layoutY="133.0" prefHeight="67.0" prefWidth="364.0" />
+      <Button fx:id="btnNuevo" layoutX="90.0" layoutY="469.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="57.0" prefWidth="115.0" text="Nuevo">
+         <effect>
+            <InnerShadow choke="0.35" color="#e4ac70" height="112.75" radius="57.04" width="117.41" />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font></Button>
+      <Button fx:id="btnEliminar" layoutX="255.0" layoutY="469.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="57.0" prefWidth="115.0" text="Eliminar">
+         <effect>
+            <InnerShadow choke="0.35" color="#e4ac70" height="108.08" radius="55.8725" width="117.41" />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEditar" layoutX="414.0" layoutY="469.0" mnemonicParsing="false" onAction="#editar" prefHeight="57.0" prefWidth="115.0" text="Editar">
+         <effect>
+            <InnerShadow choke="0.35" color="#e4ac70" height="108.08" radius="55.8725" width="117.41" />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnReporte" layoutX="577.0" layoutY="469.0" mnemonicParsing="false" onAction="#reporte" prefHeight="57.0" prefWidth="115.0" text="Reporte">
+         <effect>
+            <InnerShadow choke="0.35" color="#e4ac70" height="108.08" radius="55.8725" width="117.41" />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Button>
+      <ImageView blendMode="MULTIPLY" fitHeight="100.0" fitWidth="90.0" layoutX="660.0" layoutY="97.0" onMouseClicked="#ventanaEmpleados" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/chef-dibujos-animados-pollo-asado_119631-166.jpg" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="MULTIPLY" fitHeight="55.0" fitWidth="43.0" layoutX="692.0" layoutY="21.0" onMouseClicked="#menuPrincipal" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/png-transparent-computer-icons-arrow-back-angle-triangle-monochrome.png" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="MULTIPLY" disable="true" fitHeight="718.0" fitWidth="1338.0" layoutX="-104.0" layoutY="-64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/pngtree-chinese-style-chinese-painting-ancient-architectural-life-image_137214.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

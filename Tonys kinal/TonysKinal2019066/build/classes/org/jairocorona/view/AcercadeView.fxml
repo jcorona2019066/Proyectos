@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jairocorona.controller.ProgramadorController">
+   <children>
+      <Label fx:id="lbEmpresas" layoutX="111.0" layoutY="29.0" prefHeight="43.0" prefWidth="184.0" text="Datos Personales" textAlignment="CENTER" textFill="#d05959">
+         <font>
+            <Font name="Candara Italic" size="24.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.61">
+               <input>
+                  <SepiaTone />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Label layoutX="271.0" layoutY="93.0" text="Jairo Daniel">
+         <font>
+            <Font name="Javanese Text" size="15.0" />
+         </font></Label>
+      <Label layoutX="271.0" layoutY="138.0" text="Corona Boch">
+         <font>
+            <Font name="Javanese Text" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="185.0" text="2019066">
+         <font>
+            <Font name="Javanese Text" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="230.0" text="IN5AV">
+         <font>
+            <Font name="Javanese Text" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNombreEmpresa" layoutX="67.0" layoutY="104.0" text="Nombre">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNombreEmpresa3" layoutX="67.0" layoutY="149.0" text="Apellidos">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNombreEmpresa2" layoutX="67.0" layoutY="196.0" text="Carné">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNombreEmpresa1" layoutX="67.0" layoutY="241.0" text="Código Técnico">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="171.0" fitWidth="136.0" layoutX="147.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/foto2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="MULTIPLY" fitHeight="626.0" fitWidth="477.0" layoutX="-6.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/pngtree-chinese-style-ancient-rhyme-ink-painting-print-advertising-image_143984.png" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="MULTIPLY" fitHeight="40.0" fitWidth="35.0" layoutX="363.0" layoutY="12.0" onMouseClicked="#menuPrincipal" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/png-transparent-computer-icons-arrow-back-angle-triangle-monochrome.png" />
+         </image>
+         <effect>
+            <Lighting diffuseConstant="1.61" specularConstant="0.91" specularExponent="21.95" surfaceScale="0.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant elevation="49.39" />
+               </light>
+            </Lighting>
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>
