@@ -1,4 +1,4 @@
-# pruebaProgramacion
+# Importadora
 ***
 Se realizo una aplicacin web con las tecnologías de nodejs,mysql y handlebars como framework de plantillas
 ## Ambiente local de desarrollo
@@ -76,8 +76,6 @@ Asegúrese de cambiar password (contraseña) a una contraseña segura de su elec
 Si llega a presentar este error lo que debe hacer es parar la ejecucion del proyecto en "vscode" y volver a ejecutarlo
 ![](docs/error_tabla.png)
 
-### Codigo
-Falto el desarrollo de capturar el "id" del "estado" que seleccionaba el usuario para ingresar un nuevo Carro y de igual modificarlo, asi que tira error al poder ingresar y editar a un carro, ya que es obligatorio tener el "id" del "estado" del Carro
 
 ### Usuarios existentes
 Los usuarios existentes en la base de datos no pueden loguearse porque estos no poseen un password cifrado entonces el programa no lo detecta que venga cifrado por lo tanto no los deja ingresar, por eso se deben de ingresar nuevos ya corriendo la página 
