@@ -1,0 +1,39 @@
+{{!-- Vista de todos los automoviles que son registrados   --}}
+<body class="fondo4">
+    <div class="container p-4">
+    <div class="row">
+        <div class="card-header">
+          <h1 class="text-white text-center">Todos los Carros</h1>
+        </div>
+        {{#each links}}
+            <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <a >
+                        <h3 class="card-title text-uppercase">
+                            {{placa}}
+                        </h3>
+                    </a>
+                    <p class="m-2"> {{marca}} {{modelo}} </p>
+                    <p class="m-2"> {{nombreEstado}} </p>
+                                          
+                    <a class="btn btn-danger" href="/links/delete/{{codigoCarro}}">
+                        Eliminar
+                    </a>
+                    <a class="btn btn-secondary" href="/links/edit/{{codigoCarro}}">
+                        Editar
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>No hay ningun carro ingresado</p>
+                <a href="/links/add">Ingresa un Carro</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    </div>
+</body>

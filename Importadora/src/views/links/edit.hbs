@@ -1,0 +1,31 @@
+{{!-- Vista editar del carro seleccionado  --}}
+<body class="fondo4">
+<div class="col-md-4 mx-auto">
+<div class="card-header">
+          <h3 class="text-white text-center">Editar Carro</h3>
+        </div>
+    <div class="card">
+        <div class="card-body">
+            <form action="/links/edit/{{link.codigoCarro}}" method="POST">
+                <div class="form-group">
+                            <input type="text" name="placa" class="form-control" placeholder="Placa" value="{{link.placa}}" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="marca" class="form-control" placeholder="Marca" value="{{link.marca}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="modelo" class="form-control" placeholder="Modelo" value="{{link.modelo}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="año" class="form-control" placeholder="Año" value="{{link.año}}">
+                        </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
