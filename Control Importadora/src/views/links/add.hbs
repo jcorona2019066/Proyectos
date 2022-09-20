@@ -1,0 +1,45 @@
+{{!-- Vista añadir algun carro  --}}
+<body class="fondo4">
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+        <div class="card-header">
+          <h3 class="text-white text-center">Añadir Carro</h3>
+        </div>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/links/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="placa" class="form-control" placeholder="Placa" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="marca" class="form-control" placeholder="Marca">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="modelo" class="form-control" placeholder="Modelo">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="año" class="form-control" placeholder="Año">
+                        </div>
+
+                        <select id="estado" name="estado"class="form-select" aria-label="Default select example">
+                            <option selected>Estado</option>
+                            {{#each estadoss}}
+                            <option value={{codigoEstado}}>{{nombreEstado}}</option>
+                            {{/each}}
+                        </select>
+                        
+                                                
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block ">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>

@@ -1,0 +1,41 @@
+{{!-- Vista ingresar nuevo usuario --}}
+<body class="fondo">
+<div class="container p-4 ">
+  
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Nuevo Usuario</h3>
+          
+        </div>
+        <div class="card-body">
+          <form action="/signup" method="POST">
+            <img src="/img/login.png" alt="Logo usuario" class="card-img-top mx-auto m-2 rounded-circle w-50">
+            <div class="form-group">
+              <input type="text" name="dpi" placeholder="DPI" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="username" placeholder="Nombre" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="correoUsuario" placeholder="Correo" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" placeholder="Password" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="rol" placeholder="Rol" class="form-control">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success btn-block">
+                Crear
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

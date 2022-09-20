@@ -1,0 +1,35 @@
+{{!-- Vista para modificar al usuario seleccionado, muestra al usuario seleccionado con los campos por modificar  --}}
+<body class="fondo4">
+<div class="col-md-4 mx-auto">
+    <div class="card-header ">
+          <h1 class="text-white text-center ">Editar Usuario</h1>
+        </div>
+    <div class="card">
+        <div class="card-body">
+            <form action="/usuarios/edit/{{link.codigoUsuario}}" method="POST">
+                <div class="form-group">
+                            <input type="text" name="dpi" class="form-control" placeholder="DPI" value="{{link.dpi}}" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="username" class="form-control" placeholder="Nombre" value="{{link.username}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="correoUsuario" class="form-control" placeholder="Correo" value="{{link.correoUsuario}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="password" class="form-control" placeholder="Correo" value="{{link.password}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="rol" class="form-control" placeholder="Rol" value="{{link.rol}}">
+                        </div>
+                      
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
