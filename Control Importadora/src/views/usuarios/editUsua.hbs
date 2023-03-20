@@ -20,8 +20,13 @@
                             <input type="text" name="password" class="form-control" placeholder="Correo" value="{{link.password}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="rol" class="form-control" placeholder="Rol" value="{{link.rol}}">
-                        </div>
+                            
+                            <select class="form-control" id="rol" name="rol" required>
+                                <option value="" disabled selected>Rol</option>
+                                <option value="admin">Admin</option>
+                                <option value="usuario">Usuario</option>
+                            </select>
+              </div> 
                       
                 <div class="form-group">
                     <button class="btn btn-success btn-block">

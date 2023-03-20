@@ -11,14 +11,15 @@ const Handlebars = require("handlebars");
 
 
 
-router.get('/add', async(req, res) => {
-     const estadoss = await pool.query(
-        'select * from estados;',
+ router.get('/add', async(req, res) => {
+     const carross = await pool.query(
+        'select * from carros;',
      );
-     res.render('links/add', { estadoss});
+     res.render('links/add', { carross});
     //res.render('links/add');
-});
+}); 
 
+/*
 router.post('/add', async (req, res) => {
     seleccion(esta)
     const { placa, marca, modelo,año } = req.body;
@@ -35,12 +36,33 @@ router.post('/add', async (req, res) => {
     
     req.flash('Acción echa', 'Carro añadido');
     res.redirect('/links');
-});
+});*/
+
+
+router.post('/add', async (req, res) => {
+    const { placa, marca, modelo, año, estado } = req.body; // Obtiene el valor seleccionado del campo de Estado
+  
+    const newLink = {
+      placa,
+      marca,
+      modelo,
+      año,
+      estado, // Agrega el valor seleccionado del campo de Estado al objeto newLink
+      codigoUsuario: req.user.codigoUsuario
+    };
+    await pool.query('INSERT INTO carros set ?', [newLink]);
+  
+    req.flash('Acción echa', 'Carro añadido');
+    res.redirect('/links');
+  });
+  
+
+
 
 
 router.get('/', isLoggedIn,async (req, res) => {
     const links = await pool.query(
-        'select E.nombreEstado, C.codigoCarro, C.placa, C.marca,C.modelo,C.año from estados E inner join carros C on E.codigoEstado = C.codigoEstado;',
+        'select * from carros',
      );
         res.render('links/list', { links});
     
@@ -66,12 +88,13 @@ router.get('/edit/:id', async (req, res) => {
 router.post('/edit/:id', async (req, res) => {
     const { id } = req.params;
     console.log(id);
-    const { placa, marca, modelo,año} = req.body;
+    const { placa, marca, modelo,año,estado} = req.body;
     const newLink = {
         placa, 
         marca,
         modelo,
         año,
+        estado,
     };
     await pool.query('UPDATE carros set ? WHERE codigoCarro = ?', [newLink, id]);
     req.flash('success', 'carro modificado correctamente');
