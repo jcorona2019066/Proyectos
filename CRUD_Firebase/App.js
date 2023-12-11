@@ -31,28 +31,29 @@ return (
 
 function HomeStackScreen() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name='Add'  component={Add} options={{presentation: 'modal'}}/>
+    <Stack.Navigator >
+      <Stack.Screen name='Home'  component={Home} />
+      <Stack.Screen name='Add'  component={Add} />
+      
     </Stack.Navigator>
   );
 }
 
 
-/* function ChatScreen() {
+function ChatScreen() {
   return (
-    <ChatStack.Navigator>
-      <ChatStack.Screen name="Settings" component={SettingsScreen} />
-      <ChatStack.Screen name="Details" component={DetailsScreen} />
-    </ChatStack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name='Chat' component={Chat} />
+      
+    </Stack.Navigator>
   );
-} */
+}
 
 
 function Tabs() {
   return (
 
-      <Tab.Navigator defaultScreenOptions={Home} 
+      <Tab.Navigator defaultScreenOptions={HomeStackScreen}  
       
           screenOptions={({ route }) => ({
             tabBarIcon: ({color, size }) => {
@@ -72,10 +73,12 @@ function Tabs() {
             },
             tabBarInactiveTintColor: 'gray',
             tabBarActiveTintColor: 'tomato',
+            headerShown: false,
           })}
       >
-        <Tab.Screen name="Home2" component={HomeStackScreen} />
-        <Tab.Screen name="Chat" component={Chat}  />
+        <Tab.Screen name="Home" component={HomeStackScreen} />
+        
+        <Tab.Screen name="Chat" component={ChatScreen}  />
         
         
       </Tab.Navigator>
