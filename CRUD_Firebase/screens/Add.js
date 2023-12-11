@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as RN from "react-native";
 import { collection, addDoc } from "firebase/firestore";
-import { database } from "../../config/fb";
+import { database } from "../config/firebase";
 import { useNavigation } from "@react-navigation/native";
 import EmojiPicker from "rn-emoji-keyboard";
 

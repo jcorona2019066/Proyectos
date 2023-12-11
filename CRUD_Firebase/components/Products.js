@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as RN from 'react-native';
-import { database } from '../../config/fb';
+import { database } from '../config/firebase';
 import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { AntDesign } from '@expo/vector-icons';
 
